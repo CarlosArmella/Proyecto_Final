@@ -1,0 +1,61 @@
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.exe.config
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.exe
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.pdb
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.AssemblyReference.cache
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormMenu.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.Properties.Resources.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.GenerateResource.cache
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.CoreCompileInputs.cache
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.exe
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.pdb
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormClientes.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormProductos.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormVentas.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormUsuarios.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormInicioSesion.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.CopyComplete
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormListarProductos.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormReportes.resources
+C:\Users\HP\Downloads\Documents\4_cuarto semestre\programacion 3\practicas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormListarClientes.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.exe.config
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.exe
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.pdb
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.AssemblyReference.cache
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormClientes.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormInicioSesion.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormListarClientes.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormListarProductos.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormMenu.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormProductos.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormReportes.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormUsuarios.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormVentas.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.Properties.Resources.resources
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.GenerateResource.cache
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.CoreCompileInputs.cache
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.CopyComplete
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.exe
+C:\Users\HP\Downloads\Documents\zzzz\tomas\Proyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.pdb
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.exe.config
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.exe
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\bin\Debug\Proyecto_Final.pdb
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.SuggestedBindingRedirects.cache
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormClientes.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormInicioSesion.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormListarClientes.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormListarProductos.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormMenu.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormProductos.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormReportes.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormUsuarios.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.FormVentas.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.Properties.Resources.resources
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.csproj.CopyComplete
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.exe
+C:\Users\Usuario\Desktop\INGENIERÍA DE SOFTWARE II\proyecto\1antig\AntiguoProyecto_Final\Proyecto_Final\obj\Debug\Proyecto_Final.pdb
