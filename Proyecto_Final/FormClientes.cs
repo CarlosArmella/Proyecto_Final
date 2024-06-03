@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Final
@@ -17,41 +10,17 @@ namespace Proyecto_Final
         public FormClientes()
         {
             InitializeComponent();
-
-            List<Cliente> lista = Cliente.Listar();
-
-            dtGVClientes.Rows.Clear();
-            for (int i = 0; i < lista.Count; i++)
-            {
-                obj = lista[i];
-                dtGVClientes.Rows.Add(obj.Ci.ToString(), obj.Nombre, obj.Direccion, obj.Telefono.ToString());
-                dtGVClientes.Rows[i].Tag = obj;
-            }
+            Listar();
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
                 obj = new Cliente();
-                obj.Ci = int.Parse(txtCi.Text);
-                obj.Nombre = txtNombre.Text;
-                obj.Direccion = txtDireccion.Text;
-                obj.Telefono = int.Parse(txtTelefono.Text);
+                CargarDatos();
                 obj.Agregar();
-
-                List<Cliente> lista = Cliente.Listar();
-
-                dtGVClientes.Rows.Clear();
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    obj = lista[i];
-                    dtGVClientes.Rows.Add(obj.Ci.ToString(), obj.Nombre, obj.Direccion, obj.Telefono.ToString());
-                    dtGVClientes.Rows[i].Tag = obj;
-                }
-                txtCi.Clear();
-                txtNombre.Clear();
-                txtDireccion.Clear();
-                txtTelefono.Clear();
+                Listar();
+                LimpiarEspacios();
                 MessageBox.Show("Cliente agregado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FormatException)
@@ -70,25 +39,10 @@ namespace Proyecto_Final
             {
                 if (obj != null)
                 {
-                    obj.Ci = int.Parse(txtCi.Text);
-                    obj.Nombre = txtNombre.Text;
-                    obj.Direccion = txtDireccion.Text;
-                    obj.Telefono = int.Parse(txtTelefono.Text);
+                    CargarDatos();
                     obj.Modificar();
-
-                    List<Cliente> lista = Cliente.Listar();
-
-                    dtGVClientes.Rows.Clear();
-                    for (int i = 0; i < lista.Count; i++)
-                    {
-                        obj = lista[i];
-                        dtGVClientes.Rows.Add(obj.Ci.ToString(), obj.Nombre, obj.Direccion, obj.Telefono.ToString());
-                        dtGVClientes.Rows[i].Tag = obj;
-                    }
-                    txtCi.Clear();
-                    txtNombre.Clear();
-                    txtDireccion.Clear();
-                    txtTelefono.Clear();
+                    Listar();
+                    LimpiarEspacios();
                     obj = null;
                     MessageBox.Show("Cliente modificado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -107,19 +61,8 @@ namespace Proyecto_Final
             if (obj != null)
             {
                 obj.Borrar();
-                List<Cliente> lista = Cliente.Listar();
-
-                dtGVClientes.Rows.Clear();
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    obj = lista[i];
-                    dtGVClientes.Rows.Add(obj.Ci.ToString(), obj.Nombre, obj.Direccion, obj.Telefono.ToString());
-                    dtGVClientes.Rows[i].Tag = obj;
-                }
-                txtCi.Clear();
-                txtNombre.Clear();
-                txtDireccion.Clear();
-                txtTelefono.Clear();
+                Listar();
+                LimpiarEspacios();
                 MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -127,6 +70,31 @@ namespace Proyecto_Final
                 MessageBox.Show("Debe seleccionar un Cliente de la lista para borrar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             obj = null;
+        }
+        private void CargarDatos()
+        {
+            obj.Ci = int.Parse(txtCi.Text);
+            obj.Nombre = txtNombre.Text;
+            obj.Direccion = txtDireccion.Text;
+            obj.Telefono = int.Parse(txtTelefono.Text);
+        }
+        private void LimpiarEspacios()
+        {
+            txtCi.Clear();
+            txtNombre.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+        }
+        private void Listar()
+        {
+            List<Cliente> lista = Cliente.Listar();
+
+            dtGVClientes.Rows.Clear();
+            foreach (Cliente cliente in lista)
+            {
+                int rowIndex = dtGVClientes.Rows.Add(cliente.Ci.ToString(), cliente.Nombre, cliente.Direccion, cliente.Telefono.ToString());
+                dtGVClientes.Rows[rowIndex].Tag = cliente;
+            }
         }
         private void dtGVClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {

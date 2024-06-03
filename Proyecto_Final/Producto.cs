@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proyecto_Final
 {
@@ -29,70 +26,59 @@ namespace Proyecto_Final
         public void Agregar()
         {
             Datos.productos.Add(this);
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\productos.txt");
-            List<Producto> lista = Datos.productos;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Producto obj = lista[i];
-                escritor.WriteLine($"{obj.Codigo}♣{obj.Nombre}♣{obj.Descripcion}♣{obj.Precio.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public void Modificar()
         {
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\productos.txt");
-            List<Producto> lista = Datos.productos;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Producto obj = lista[i];
-                escritor.WriteLine($"{obj.Codigo}♣{obj.Nombre}♣{obj.Descripcion}♣{obj.Precio.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public void Borrar()
         {
             Datos.productos.Remove(this);
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\productos.txt");
-            List<Producto> lista = Datos.productos;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Producto obj = lista[i];
-                escritor.WriteLine($"{obj.Codigo}♣{obj.Nombre}♣{obj.Descripcion}♣{obj.Precio.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public static List<Producto> Listar()
         {
             return Datos.productos;
         }
-      
+        private void GuardarEnTxt()
+        {
+            string rutaAbsoluta = Directory.GetCurrentDirectory();
+            using (StreamWriter escritor = new StreamWriter(Path.Combine(rutaAbsoluta, "productos.txt")))
+            {
+                foreach (Producto producto in Datos.productos)
+                {
+                    escritor.WriteLine($"{producto.Codigo}♣{producto.Nombre}♣{producto.Descripcion}♣{producto.Precio}");
+                }
+            }
+        }
         public static void RecuperarTxtProductos()
         {
             string rutaAbsoluta = Directory.GetCurrentDirectory();
+            string rutaArchivo = Path.Combine(rutaAbsoluta, "productos.txt");
 
-            if (File.Exists(rutaAbsoluta + @"\productos.txt"))
+            if (File.Exists(rutaArchivo))
             {
-                StreamReader lector = new StreamReader(rutaAbsoluta + @"\productos.txt");
-                string registro = lector.ReadLine();
-                while (registro != null)
+                using (StreamReader lector = new StreamReader(rutaArchivo))
                 {
-                    string[] datos = registro.Split('♣');
-                    Producto obj = new Producto();
-                    obj.Codigo = datos[0].ToString();
-                    obj.Nombre = datos[1].ToString();
-                    obj.Descripcion = datos[2].ToString();
-                    obj.Precio = double.Parse(datos[3].ToString());
-                    Datos.productos.Add(obj);
-                    registro = lector.ReadLine();
+                    string registro;
+                    while ((registro = lector.ReadLine()) != null)
+                    {
+                        string[] datos = registro.Split('♣');
+                        Producto obj = new Producto
+                        {
+                            Codigo = datos[0],
+                            Nombre = datos[1],
+                            Descripcion = datos[2],
+                            Precio = double.Parse(datos[3])
+                        };
+                        Datos.productos.Add(obj);
+                    }
                 }
-                lector.Close();
             }
             else
             {
-                File.Create(rutaAbsoluta + @"\productos.txt");
+                File.Create(rutaArchivo).Close();
             }
         }
     }

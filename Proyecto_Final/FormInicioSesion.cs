@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Final
@@ -19,21 +13,23 @@ namespace Proyecto_Final
         private void button1_Click(object sender, EventArgs e)
         {
             List<Usuario> lista = Usuario.Listar();
-            Usuario obj = new Usuario();
-            bool aux = false;
+            bool usuarioValido = false;
             int num = 0;
+
             for (int i = 0; i < lista.Count; i++)
             {
-                obj = lista[i];
+                Usuario obj = lista[i];
                 if (txtId.Text == obj.Id.ToString() && txtContraseña.Text == obj.Contraseña)
                 {
-                    aux = true;
+                    usuarioValido = true;
                     num = i;
+                    break;
                 }
             }
-            FormMenu ventana = new FormMenu(num);
-            if (aux == true)
+            
+            if (usuarioValido == true)
             {
+                FormMenu ventana = new FormMenu(num);
                 ventana.ShowDialog();
             }
             else

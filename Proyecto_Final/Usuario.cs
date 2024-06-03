@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proyecto_Final
 {
@@ -28,70 +25,57 @@ namespace Proyecto_Final
         public void Agregar()
         {
             Datos.usuarios.Add(this);
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\usuarios.txt");
-            List<Usuario> lista = Datos.usuarios;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Usuario obj = lista[i];
-                escritor.WriteLine($"{obj.Id.ToString()}♣{obj.Nombre}♣{obj.Contraseña}♣{obj.Rol.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public void Modificar()
         {
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\usuarios.txt");
-            List<Usuario> lista = Datos.usuarios;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Usuario obj = lista[i];
-                escritor.WriteLine($"{obj.Id.ToString()}♣{obj.Nombre}♣{obj.Contraseña}♣{obj.Rol.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public void Borrar()
         {
             Datos.usuarios.Remove(this);
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\usuarios.txt");
-            List<Usuario> lista = Datos.usuarios;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Usuario obj = lista[i];
-                escritor.WriteLine($"{obj.Id.ToString()}♣{obj.Nombre}♣{obj.Contraseña}♣{obj.Rol.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public static List<Usuario> Listar()
         {
             return Datos.usuarios;
         }
-        
+        private void GuardarEnTxt()
+        {
+            string rutaAbsoluta = Directory.GetCurrentDirectory();
+            using (StreamWriter escritor = new StreamWriter(Path.Combine(rutaAbsoluta, "usuarios.txt")))
+            {
+                foreach (Usuario usuario in Datos.usuarios)
+                {
+                    escritor.WriteLine($"{usuario.Id}♣{usuario.Nombre}♣{usuario.Contraseña}♣{usuario.Rol}");
+                }
+            }
+        }
         public static void RecuperarTxtUsuarios()
         {
             string rutaAbsoluta = Directory.GetCurrentDirectory();
+            string rutaArchivo = Path.Combine(rutaAbsoluta, "usuarios.txt");
 
-            if (File.Exists(rutaAbsoluta + @"\usuarios.txt"))
+            if (File.Exists(rutaArchivo))
             {
-                StreamReader lector = new StreamReader(rutaAbsoluta + @"\usuarios.txt");
-                string registro = lector.ReadLine();
-                while (registro != null)
+                using (StreamReader lector = new StreamReader(rutaArchivo))
                 {
-                    string[] datos = registro.Split('♣');
-                    Usuario obj = new Usuario();
-                    obj.Id = int.Parse(datos[0].ToString());
-                    obj.Nombre = datos[1].ToString();
-                    obj.Contraseña = datos[2].ToString();
-                    obj.Rol = Convert.ToBoolean(datos[3].ToString());
-                    Datos.usuarios.Add(obj);
-                    registro = lector.ReadLine();
+                    string registro;
+                    while ((registro = lector.ReadLine()) != null)
+                    {
+                        string[] datos = registro.Split('♣');
+                        int id = int.Parse(datos[0]);
+                        string nombre = datos[1];
+                        string contraseña = datos[2];
+                        bool rol = bool.Parse(datos[3]);
+                        Usuario obj = new Usuario(id, nombre, contraseña, rol);
+                        Datos.usuarios.Add(obj);
+                    }
                 }
-                lector.Close();
             }
             else
             {
-                File.Create(rutaAbsoluta + @"\usuarios.txt");
+                File.Create(rutaArchivo).Close();
             }
         }
     }

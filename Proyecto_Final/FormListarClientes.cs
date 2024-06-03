@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Final
@@ -16,6 +10,10 @@ namespace Proyecto_Final
         public FormListarClientes()
         {
             InitializeComponent();
+            Listar();
+        }
+        private void Listar()
+        {
             List<Cliente> lista = Cliente.Listar();
 
             dtGVClientes.Rows.Clear();
@@ -26,7 +24,6 @@ namespace Proyecto_Final
                 dtGVClientes.Rows[i].Tag = obj;
             }
         }
-        
         private void dtGVClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             obj = (Cliente)dtGVClientes.CurrentRow.Tag;

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Final
@@ -20,16 +14,19 @@ namespace Proyecto_Final
         public void VerificarRol(int num)
         {
             List<Usuario> lista = Usuario.Listar();
-            Usuario obj = new Usuario();
-            obj = lista[num];
+            Usuario obj = lista[num];
             labelNombre.Text = obj.Nombre;
             if (obj.Rol == true)
             {
                 labelRol.Text = "Administrador";
-                iconButton4.Enabled = true;
-                iconButton5.Enabled = true;
-                iconButton6.Enabled = true;
+                HabilitarAccionesAdministrativas();
             }
+        }
+        private void HabilitarAccionesAdministrativas()
+        {
+            iconButton4.Enabled = true;
+            iconButton5.Enabled = true;
+            iconButton6.Enabled = true;
         }
 
         private Form activeForm = null;

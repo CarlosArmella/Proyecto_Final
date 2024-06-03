@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Final
@@ -17,7 +13,13 @@ namespace Proyecto_Final
         public FormListarProductos(bool a)
         {
             InitializeComponent();
+            Listar();
+            aux = a;
+        }
+        private void Listar()
+        {
             List<Producto> lista = Producto.Listar();
+
             dtGVProductos.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
@@ -25,47 +27,32 @@ namespace Proyecto_Final
                 dtGVProductos.Rows.Add(obj.Codigo, obj.Nombre, obj.Descripcion, obj.Precio.ToString());
                 dtGVProductos.Rows[i].Tag = obj;
             }
-            aux = a;
+        }
+        private void OrdenarPor(Func<Producto, object> keySelector)
+        {
+            List<Producto> lista = Producto.Listar();
+            IEnumerable<Producto> listaOrdenada = lista.OrderBy(keySelector);
+
+            dtGVProductos.Rows.Clear();
+            int i = 0;
+            foreach (Producto producto in listaOrdenada)
+            {
+                dtGVProductos.Rows.Add(producto.Codigo, producto.Nombre, producto.Descripcion, producto.Precio.ToString());
+                dtGVProductos.Rows[i].Tag = obj;
+                i++;
+            }
         }
         private void btnOrdCodigo_Click(object sender, EventArgs e)
         {
-            List<Producto> lista = Producto.Listar();
-            IEnumerable<Producto> listaOrd = lista.OrderBy(user => user.Codigo);
-            
-            dtGVProductos.Rows.Clear();
-            int i = 0;
-            foreach (Producto obj in listaOrd)
-            {
-                dtGVProductos.Rows.Add(obj.Codigo, obj.Nombre, obj.Descripcion, obj.Precio.ToString());
-                dtGVProductos.Rows[i].Tag = obj;
-                i++;
-            }
+            OrdenarPor(producto => producto.Codigo);
         }
         private void btnOrdNombre_Click(object sender, EventArgs e)
         {
-            List<Producto> lista = Producto.Listar();
-            IEnumerable<Producto> listaOrd = lista.OrderBy(user => user.Nombre);
-            dtGVProductos.Rows.Clear();
-            int i = 0;
-            foreach (Producto obj in listaOrd)
-            {
-                dtGVProductos.Rows.Add(obj.Codigo, obj.Nombre, obj.Descripcion, obj.Precio.ToString());
-                dtGVProductos.Rows[i].Tag = obj;
-                i++;
-            }
+            OrdenarPor(producto => producto.Nombre);
         }
         private void btnOrdPrecio_Click(object sender, EventArgs e)
         {
-            List<Producto> lista = Producto.Listar();
-            IEnumerable<Producto> listaOrd = lista.OrderBy(user => user.Precio);
-            dtGVProductos.Rows.Clear();
-            int i = 0;
-            foreach(Producto obj in listaOrd)
-            {
-                dtGVProductos.Rows.Add(obj.Codigo, obj.Nombre, obj.Descripcion, obj.Precio.ToString());
-                dtGVProductos.Rows[i].Tag = obj;
-                i++;
-            }
+            OrdenarPor(producto => producto.Precio);
         }
         private void dtGVProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {          

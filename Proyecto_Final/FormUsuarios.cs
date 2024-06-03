@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Final
@@ -16,39 +10,17 @@ namespace Proyecto_Final
         public FormUsuarios()
         {
             InitializeComponent();
-            List<Usuario> lista = Usuario.Listar();
-
-            dtGVUsuarios.Rows.Clear();
-            for (int i = 0; i < lista.Count; i++)
-            {
-                obj = lista[i];
-                dtGVUsuarios.Rows.Add(obj.Id.ToString(), obj.Nombre, obj.Contraseña, obj.Rol.ToString());
-                dtGVUsuarios.Rows[i].Tag = obj;
-            }
+            Listar();
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
                 obj = new Usuario();
-                obj.Id = int.Parse(txtId.Text);
-                obj.Nombre = txtNombre.Text;
-                obj.Contraseña = txtContraseña.Text;
-                obj.Rol = checkBox1.Checked;
+                CargarDatos();
                 obj.Agregar();
-                List<Usuario> lista = Usuario.Listar();
-
-                dtGVUsuarios.Rows.Clear();
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    obj = lista[i];
-                    dtGVUsuarios.Rows.Add(obj.Id.ToString(), obj.Nombre, obj.Contraseña, obj.Rol.ToString());
-                    dtGVUsuarios.Rows[i].Tag = obj;
-                }
-                txtId.Clear();
-                txtNombre.Clear();
-                txtContraseña.Clear();
-                checkBox1.Checked = false;
+                Listar();
+                LimpiarEspacios();
                 MessageBox.Show("Usuario agregado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FormatException)
@@ -67,24 +39,10 @@ namespace Proyecto_Final
             {
                 if (obj != null)
                 {
-                    obj.Id = int.Parse(txtId.Text);
-                    obj.Nombre = txtNombre.Text;
-                    obj.Contraseña = txtContraseña.Text;
-                    obj.Rol = checkBox1.Checked;
+                    CargarDatos();
                     obj.Modificar();
-                    List<Usuario> lista = Usuario.Listar();
-
-                    dtGVUsuarios.Rows.Clear();
-                    for (int i = 0; i < lista.Count; i++)
-                    {
-                        obj = lista[i];
-                        dtGVUsuarios.Rows.Add(obj.Id.ToString(), obj.Nombre, obj.Contraseña, obj.Rol.ToString());
-                        dtGVUsuarios.Rows[i].Tag = obj;
-                    }
-                    txtId.Clear();
-                    txtNombre.Clear();
-                    txtContraseña.Clear();
-                    checkBox1.Checked = false;
+                    Listar();
+                    LimpiarEspacios();
                     obj = null;
                     MessageBox.Show("Usuario modificado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -103,19 +61,8 @@ namespace Proyecto_Final
             if (obj != null)
             {
                 obj.Borrar();
-                List<Usuario> lista = Usuario.Listar();
-
-                dtGVUsuarios.Rows.Clear();
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    obj = lista[i];
-                    dtGVUsuarios.Rows.Add(obj.Id.ToString(), obj.Nombre, obj.Contraseña, obj.Rol.ToString());
-                    dtGVUsuarios.Rows[i].Tag = obj;
-                }
-                txtId.Clear();
-                txtNombre.Clear();
-                txtContraseña.Clear();
-                checkBox1.Checked = false;
+                Listar();
+                LimpiarEspacios();
                 MessageBox.Show("Usuario eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -123,6 +70,32 @@ namespace Proyecto_Final
                 MessageBox.Show("Debe seleccionar un Usuario de la lista para borrar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             obj = null;
+        }
+        private void CargarDatos()
+        {
+            obj.Id = int.Parse(txtId.Text);
+            obj.Nombre = txtNombre.Text;
+            obj.Contraseña = txtContraseña.Text;
+            obj.Rol = checkBox1.Checked;
+        }
+        private void LimpiarEspacios()
+        {
+            txtId.Clear();
+            txtNombre.Clear();
+            txtContraseña.Clear();
+            checkBox1.Checked = false;
+        }
+        private void Listar()
+        {
+            List<Usuario> lista = Usuario.Listar();
+
+            dtGVUsuarios.Rows.Clear();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                obj = lista[i];
+                dtGVUsuarios.Rows.Add(obj.Id.ToString(), obj.Nombre, obj.Contraseña, obj.Rol.ToString());
+                dtGVUsuarios.Rows[i].Tag = obj;
+            }
         }
         private void dtGVUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {

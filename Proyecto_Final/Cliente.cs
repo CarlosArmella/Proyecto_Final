@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proyecto_Final
 {
@@ -24,74 +21,62 @@ namespace Proyecto_Final
             Telefono = telefono;
         }
 
+
         // Metodos
         public void Agregar()
         {
             Datos.clientes.Add(this);
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\clientes.txt");
-            List<Cliente> lista = Datos.clientes;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Cliente obj = lista[i];
-                escritor.WriteLine($"{obj.Ci.ToString()}♣{obj.Nombre}♣{obj.Direccion}♣{obj.Telefono.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public void Modificar()
         {
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\clientes.txt");
-            List<Cliente> lista = Datos.clientes;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Cliente obj = lista[i];
-                escritor.WriteLine($"{obj.Ci.ToString()}♣{obj.Nombre}♣{obj.Direccion}♣{obj.Telefono.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public void Borrar()
         {
             Datos.clientes.Remove(this);
-            string rutaAbsoluta = Directory.GetCurrentDirectory();
-            StreamWriter escritor = new StreamWriter(rutaAbsoluta + @"\clientes.txt");
-            List<Cliente> lista = Datos.clientes;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                Cliente obj = lista[i];
-                escritor.WriteLine($"{obj.Ci.ToString()}♣{obj.Nombre}♣{obj.Direccion}♣{obj.Telefono.ToString()}");
-            }
-            escritor.Close();
+            GuardarEnTxt();
         }
         public static List<Cliente> Listar()
         {
             return Datos.clientes;
         }
-        
+        private void GuardarEnTxt()
+        {
+            string rutaAbsoluta = Directory.GetCurrentDirectory();
+            using (StreamWriter escritor = new StreamWriter(Path.Combine(rutaAbsoluta, "clientes.txt")))
+            {
+                foreach (Cliente cliente in Datos.clientes)
+                {
+                    escritor.WriteLine($"{cliente.Ci}♣{cliente.Nombre}♣{cliente.Direccion}♣{cliente.Telefono}");
+                }
+            }
+        }
         public static void RecuperarTxtClientes()
         {
             string rutaAbsoluta = Directory.GetCurrentDirectory();
+            string rutaArchivo = Path.Combine(rutaAbsoluta, "clientes.txt");
 
-            if (File.Exists(rutaAbsoluta + @"\clientes.txt"))
+            if (File.Exists(rutaArchivo))
             {
-                StreamReader lector = new StreamReader(rutaAbsoluta + @"\clientes.txt");
-                string registro = lector.ReadLine();
-                while (registro != null)
+                using (StreamReader lector = new StreamReader(rutaArchivo))
                 {
-                    string[] datos = registro.Split('♣');
-                    Cliente obj = new Cliente();
-                    obj.Ci = int.Parse(datos[0].ToString());
-                    obj.Nombre = datos[1].ToString();
-                    obj.Direccion = datos[2].ToString();
-                    obj.Telefono = int.Parse(datos[3].ToString());
-                    Datos.clientes.Add(obj);
-                    registro = lector.ReadLine();
+                    string registro;
+                    while ((registro = lector.ReadLine()) != null)
+                    {
+                        string[] datos = registro.Split('♣');
+                        int ci = int.Parse(datos[0]);
+                        string nombre = datos[1];
+                        string direccion = datos[2];
+                        int telefono = int.Parse(datos[3]);
+                        Cliente obj = new Cliente(ci, nombre, direccion, telefono);
+                        Datos.clientes.Add(obj);
+                    }
                 }
-                lector.Close();
             }
             else
             {
-                File.Create(rutaAbsoluta + @"\clientes.txt");
+                File.Create(rutaArchivo).Close();
             }
         }
     }
